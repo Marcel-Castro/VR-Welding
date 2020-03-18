@@ -11,6 +11,13 @@ public class RopeV2 : MonoBehaviour
     // Rope segments needed for stabilizing the "bottom" of the rope
     Transform secondLast;
     Transform last;
+    // Rope segment needed for creating tether between first and last segment
+    Transform first;
+
+    // Max distance between first and last segment of the rope
+    float maxDist;
+    public float maxDistThreshold; // Percentage
+    public float tetherSpeed;
 
     // RigidBody Properties
     public float rbMass = 1;
@@ -20,14 +27,19 @@ public class RopeV2 : MonoBehaviour
 
     void Awake() {
         ropeParent = gameObject.transform.Find("Hose_Armature");
+
+        first = ropeParent.Find("end_1");
+        secondLast = ropeParent.Find("2ndLast");
+        last = ropeParent.Find("end_2");
     }
 
     // Start is called before the first frame update
     void Start()
     {
         addPhysicsToBones(ropeParent);
-        secondLast = ropeParent.Find("2ndLast");
-        last = ropeParent.Find("end_2");
+
+        // Create tether between first and last segment to prevent streching of the rope, here we get the distance between the two
+        maxDist = Vector3.Distance(first.position, last.position);
     }
 
     // Update is called once per frame
@@ -42,6 +54,15 @@ public class RopeV2 : MonoBehaviour
 
         // The second to last segment should always have the same "kinematic value" as the last segment
         secondLast.gameObject.GetComponent<Rigidbody>().isKinematic = last.gameObject.GetComponent<Rigidbody>().isKinematic;
+
+        // Enforce tether when both ends of the rope are "grabbed" (both are kinematic)
+        float step =  tetherSpeed * Time.deltaTime;
+
+        if (last.gameObject.GetComponent<Rigidbody>().isKinematic == true && first.gameObject.GetComponent<Rigidbody>().isKinematic) {
+            if (Vector3.Distance(first.position, last.position) >= maxDist - (maxDist * maxDistThreshold)) {
+                last.position = Vector3.MoveTowards(last.position, first.position, step);
+            }
+        }
     }
 
     void addGrabPoint(GameObject current) {
@@ -76,7 +97,16 @@ public class RopeV2 : MonoBehaviour
                 CharacterJoint joint = current.AddComponent<CharacterJoint>() as CharacterJoint;
                 joint.enablePreprocessing = false;
                 joint.enableCollision = false;
-                // joint.twistLimitSpring.damper = .02f; TODO ----------
+
+                SoftJointLimitSpring newSoftJoint = joint.twistLimitSpring;
+                newSoftJoint.spring = 20;
+                newSoftJoint.damper = 1000;
+                joint.twistLimitSpring = newSoftJoint;
+
+                newSoftJoint = joint.swingLimitSpring;
+                newSoftJoint.spring = 20;
+                newSoftJoint.damper = 1000;
+                joint.swingLimitSpring = newSoftJoint;
 
                 joint.connectedBody = root.GetChild(i - 1).gameObject.GetComponent<Rigidbody>();
             }
