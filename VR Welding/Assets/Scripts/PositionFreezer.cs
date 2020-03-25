@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PositionFreezer : MonoBehaviour
 {
+    Vector3 initialPos;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        initialPos = this.gameObject.GetComponent<Transform>().transform.localPosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.GetComponent<Transform>().transform.localPosition = new Vector3(0,0,0);
+        this.gameObject.GetComponent<Transform>().transform.localPosition = initialPos;
     }
 }
