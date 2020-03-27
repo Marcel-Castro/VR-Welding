@@ -8,6 +8,10 @@ public class UIValve : MonoBehaviour
     public GameObject valve;
     bool findAngle = false;
     bool haveOldPos = false;
+
+    public bool haveStopRotate = false;
+
+    public Vector3 stopRotate;
     Quaternion lastPosition;
     float totalAngle;
 
@@ -19,9 +23,38 @@ public class UIValve : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+
+        if(totalAngle > 360 )
+        {
+            (this.gameObject.GetComponent("ManipulationHandler") as MonoBehaviour).enabled = false;
+            (this.gameObject.GetComponent("NearInteractionGrabbable") as MonoBehaviour).enabled = false;
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            
+            if(!haveStopRotate)
+            {
+                stopRotate = this.gameObject.GetComponent<Transform>().transform.eulerAngles;
+
+                stopRotate = new Vector3(stopRotate.x, stopRotate.y - 10f, stopRotate.z);
+
+                haveStopRotate = true;
+            }
+            else {
+                this.gameObject.GetComponent<Transform>().transform.eulerAngles = stopRotate;
+                haveStopRotate = false;
+            }
+            
+            //RotationFreezer(true, stopRotate);
+        }
+        else{
+            (this.gameObject.GetComponent("ManipulationHandler") as MonoBehaviour).enabled = true;
+            (this.gameObject.GetComponent("NearInteractionGrabbable") as MonoBehaviour).enabled = true;
+            this.gameObject.GetComponent<BoxCollider>().enabled = true;
+            
+        }
    
+        
         //measure difference
 
         float newAngle = Quaternion.Angle(lastPosition, valve.gameObject.transform.localRotation);
@@ -38,9 +71,10 @@ public class UIValve : MonoBehaviour
         
         Debug.Log(totalAngle);
 
+        //adjust gauge
         needle.gameObject.GetComponent<Transform>().localEulerAngles = new Vector3(needle.gameObject.GetComponent<Transform>().localEulerAngles.x, 
                                                                                      needle.gameObject.GetComponent<Transform>().localEulerAngles.y, 
-                                                                                     totalAngle * 0.125f);
+                                                                                     totalAngle * -0.125f);
     }
 
 
@@ -65,6 +99,15 @@ public class UIValve : MonoBehaviour
         return (clockWise <= counterClockWise);
     }
 
+    void RotationFreezer(bool dir, Vector3 rotation)
+    {
+
+        rotation = new Vector3(rotation.x, rotation.y - 2f, rotation.z);
+
+        this.gameObject.GetComponent<Transform>().transform.eulerAngles = rotation;
+
+    }
+    
     
     
 }
