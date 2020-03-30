@@ -24,6 +24,7 @@ public class RopeV2 : MonoBehaviour
 
     // Collider size
     public float collSize = .005f;
+    
 
     void Awake() {
         ropeParent = gameObject.transform.Find("Hose_Armature");
@@ -33,18 +34,18 @@ public class RopeV2 : MonoBehaviour
         last = ropeParent.Find("end_2");
     }
 
+
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         addPhysicsToBones(ropeParent);
 
         // Create tether between first and last segment to prevent streching of the rope, here we get the distance between the two
         maxDist = Vector3.Distance(first.position, last.position);
     }
 
+
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         // Second to last segment should match the transform of the last segment when both are set to kinematic
         if (last.gameObject.GetComponent<Rigidbody>().isKinematic == true) {
             secondLast.SetParent(last);
@@ -65,6 +66,7 @@ public class RopeV2 : MonoBehaviour
         }
     }
 
+
     void addGrabPoint(GameObject current) {
         ManipulationHandler scriptRef = current.AddComponent<ManipulationHandler>() as ManipulationHandler;
         scriptRef.ManipulationType = ManipulationHandler.HandMovementType.OneHandedOnly;
@@ -72,6 +74,7 @@ public class RopeV2 : MonoBehaviour
 
         current.gameObject.AddComponent<NearInteractionGrabbable>();
     }
+
 
     void addPhysicsToBones(Transform root) {
         for (int i = 0; i < root.childCount; i++) {
