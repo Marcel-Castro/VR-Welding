@@ -949,12 +949,12 @@ ConfigurableJoint:
   m_ConnectedAnchor: {x: 0, y: -1.04, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
-  m_XMotion: 2
+  m_XMotion: 0
   m_YMotion: 0
-  m_ZMotion: 2
-  m_AngularXMotion: 2
-  m_AngularYMotion: 2
-  m_AngularZMotion: 2
+  m_ZMotion: 0
+  m_AngularXMotion: 1
+  m_AngularYMotion: 1
+  m_AngularZMotion: 1
   m_LinearLimitSpring:
     spring: 0
     damper: 0
@@ -966,22 +966,22 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_LowAngularXLimit:
-    limit: 0
+    limit: -20
     bounciness: 0
     contactDistance: 0
   m_HighAngularXLimit:
-    limit: 0
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_AngularYZLimitSpring:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 0
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
-    limit: 0
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}
@@ -1664,12 +1664,12 @@ ConfigurableJoint:
   m_ConnectedAnchor: {x: 0, y: -1.1500001, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
-  m_XMotion: 2
+  m_XMotion: 0
   m_YMotion: 0
-  m_ZMotion: 2
-  m_AngularXMotion: 2
-  m_AngularYMotion: 2
-  m_AngularZMotion: 2
+  m_ZMotion: 0
+  m_AngularXMotion: 1
+  m_AngularYMotion: 1
+  m_AngularZMotion: 1
   m_LinearLimitSpring:
     spring: 0
     damper: 0
@@ -1681,22 +1681,22 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_LowAngularXLimit:
-    limit: 0
+    limit: -20
     bounciness: 0
     contactDistance: 0
   m_HighAngularXLimit:
-    limit: 0
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_AngularYZLimitSpring:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 0
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
-    limit: 0
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}
@@ -2032,12 +2032,12 @@ ConfigurableJoint:
   m_ConnectedAnchor: {x: 0, y: -0.85999966, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
-  m_XMotion: 2
+  m_XMotion: 0
   m_YMotion: 0
-  m_ZMotion: 2
-  m_AngularXMotion: 2
-  m_AngularYMotion: 2
-  m_AngularZMotion: 2
+  m_ZMotion: 0
+  m_AngularXMotion: 1
+  m_AngularYMotion: 1
+  m_AngularZMotion: 1
   m_LinearLimitSpring:
     spring: 0
     damper: 0
@@ -2049,22 +2049,22 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_LowAngularXLimit:
-    limit: 0
+    limit: -20
     bounciness: 0
     contactDistance: 0
   m_HighAngularXLimit:
-    limit: 0
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_AngularYZLimitSpring:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 0
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
-    limit: 0
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}

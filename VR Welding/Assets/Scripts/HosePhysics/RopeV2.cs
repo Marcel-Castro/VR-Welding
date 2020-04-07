@@ -97,19 +97,35 @@ public class RopeV2 : MonoBehaviour
 
             // Add and connect character joints for all segments EXCEPT the first
             if (i != 0) {
-                CharacterJoint joint = current.AddComponent<CharacterJoint>() as CharacterJoint;
-                joint.enablePreprocessing = false;
-                joint.enableCollision = false;
+                ConfigurableJoint joint = current.AddComponent<ConfigurableJoint>() as ConfigurableJoint;
 
-                SoftJointLimitSpring newSoftJoint = joint.twistLimitSpring;
-                newSoftJoint.spring = 20;
-                newSoftJoint.damper = 1000;
-                joint.twistLimitSpring = newSoftJoint;
+                joint.xMotion = ConfigurableJointMotion.Locked;
+                joint.yMotion = ConfigurableJointMotion.Locked;
+                joint.zMotion = ConfigurableJointMotion.Locked;
 
-                newSoftJoint = joint.swingLimitSpring;
-                newSoftJoint.spring = 20;
-                newSoftJoint.damper = 1000;
-                joint.swingLimitSpring = newSoftJoint;
+                // joint.angularXMotion = ConfigurableJointMotion.Limited;
+                joint.angularYMotion = ConfigurableJointMotion.Limited;
+                // joint.angularZMotion = ConfigurableJointMotion.Limited;
+
+                SoftJointLimit newSoftJoint = joint.angularYLimit;
+                newSoftJoint.limit = 40;
+                joint.angularYLimit = newSoftJoint;
+
+                // ------------------------------------------------------------------------------------------------------
+
+                // CharacterJoint joint = current.AddComponent<CharacterJoint>() as CharacterJoint;
+                // joint.enablePreprocessing = false;
+                // joint.enableCollision = false;
+
+                // SoftJointLimitSpring newSoftJoint = joint.twistLimitSpring;
+                // newSoftJoint.spring = 20;
+                // newSoftJoint.damper = 1000;
+                // joint.twistLimitSpring = newSoftJoint;
+
+                // newSoftJoint = joint.swingLimitSpring;
+                // newSoftJoint.spring = 20;
+                // newSoftJoint.damper = 1000;
+                // joint.swingLimitSpring = newSoftJoint;
 
                 joint.connectedBody = root.GetChild(i - 1).gameObject.GetComponent<Rigidbody>();
             }
