@@ -11,7 +11,8 @@ public class SetConnectedAnchor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Disable anchor by default
+        anchor.enabled = false;
     }
 
     // Update is called once per frame
