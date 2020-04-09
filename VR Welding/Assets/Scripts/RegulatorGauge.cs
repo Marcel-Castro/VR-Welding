@@ -19,6 +19,12 @@ public class RegulatorGauge : MonoBehaviour
     public float turnRatio;
     public bool matchDirection;
 
+    public float acceptableDegreeStart;
+
+    public float acceptableDegreeEnd;
+
+    public bool withinRange;
+
     
 
     // Start is called before the first frame update
@@ -56,7 +62,6 @@ public class RegulatorGauge : MonoBehaviour
 
         //keep track of rotation angle
         totalAngle += UpdateTotalAngle();
-        Debug.Log(totalAngle);
 
         //adjust gauges
         UINeedle.gameObject.GetComponent<Transform>().localEulerAngles = new Vector3(UINeedle.gameObject.GetComponent<Transform>().localEulerAngles.x, 
@@ -66,6 +71,16 @@ public class RegulatorGauge : MonoBehaviour
         needle.gameObject.GetComponent<Transform>().localEulerAngles = new Vector3(needle.gameObject.GetComponent<Transform>().localEulerAngles.x, 
                                                                                     needle.gameObject.GetComponent<Transform>().localEulerAngles.y, 
                                                                                     totalAngle * -turnRatio);
+    
+        //change if needle is within acceptable state
+        if(totalAngle > acceptableDegreeStart && totalAngle < acceptableDegreeEnd)
+        {
+            withinRange = true;
+        }
+        else{
+            withinRange = false;
+        }
+    
     }
 
     //Update at what angle the rotation should stop
