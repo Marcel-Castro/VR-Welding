@@ -20,33 +20,34 @@ public class Lesson : MonoBehaviour
     void Update()
     {
 
-        // if tank is secured
+        // 1. if tank is secured
 
-        // if oxy regulator is attached
+        // 2. if regulators are attached
+            // if oxy regulator is attached
 
-        // if ace regulator is attached
+            // if ace regulator is attached
 
-        // if connected right hoses
+        // 3. if hoses are connected
+            // if connected right hoses
 
-        // if connected hoses to the torch
+            // if connected hoses to the torch
 
-        // if opened oxygen completely
+        // 4. if opened oxygen completely
 
-        // if adjusted oxy psi to 40
+        // 5. if adjusted oxy psi to 40
         if(oxyReg.transform.GetChild(1).transform.GetChild(0).GetComponentInChildren<RegulatorGauge>().withinRange == true)
         {
             print("oxy psi good");
         }
         
 
-        // if opened acetalyne 1/2 turn
+        // 6. if opened acetalyne 1/2 turn
 
-        // if adjusted ace psi to 10
+        // 7. if adjusted ace psi to 10
         if(aceReg.transform.GetChild(1).transform.GetChild(0).GetComponentInChildren<RegulatorGauge>().withinRange == true)
         {
             print("ace psi good");
         }
 
-        // OPTIONAL if adjusted both psi's to torch setting
     }
 }
