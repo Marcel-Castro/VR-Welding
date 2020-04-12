@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RopeV2 : MonoBehaviour
+public class RopeV2_Chain : MonoBehaviour
 {
     // Parent containing all rope segments
     public Transform ropeParent;
@@ -36,6 +36,9 @@ public class RopeV2 : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         addPhysicsToBones(ropeParent);
+
+        // Set first end of the chain to kinematic by default
+        first.GetComponent<Rigidbody>().isKinematic = true;
 
         // Create tether between first and last segment to prevent streching of the rope, here we get the distance between the two
         maxDist = Vector3.Distance(first.position, last.position);
@@ -88,8 +91,8 @@ public class RopeV2 : MonoBehaviour
             // Add collision layer (for removing collisions between rope segments)
             current.layer = 9;
 
-            // Add grab points to first and last segments
-            if (i == 0 || i == root.childCount - 1) {
+            // Add grab point to last segment
+            if (i == root.childCount - 1) {
                 addGrabPoint(current);
             }
 
