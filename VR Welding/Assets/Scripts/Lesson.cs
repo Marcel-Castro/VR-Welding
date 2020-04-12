@@ -33,20 +33,38 @@ public class Lesson : MonoBehaviour
             // if connected hoses to the torch
 
         // 4. if opened oxygen completely
+        if(oxyTank.transform.GetChild(1).transform.GetChild(1).GetComponentInChildren<ValveGauge>().withinRange == true)
+        {
+            this.gameObject.transform.GetChild(3).gameObject.SetActive(true);
+        }
+        else{
+            this.gameObject.transform.GetChild(3).gameObject.SetActive(false);
+        }
+
 
         // 5. if adjusted oxy psi to 40
         if(oxyReg.transform.GetChild(1).transform.GetChild(0).GetComponentInChildren<RegulatorGauge>().withinRange == true)
         {
-            print("oxy psi good");
+            this.gameObject.transform.GetChild(4).gameObject.SetActive(true);
+        }
+        else{
+            this.gameObject.transform.GetChild(3).gameObject.SetActive(false);
         }
         
 
         // 6. if opened acetalyne 1/2 turn
+        if(aceTank.transform.GetChild(1).transform.GetChild(1).GetComponentInChildren<ValveGauge>().withinRange == true)
+        {
+            this.gameObject.transform.GetChild(5).gameObject.SetActive(true);
+        }
+        else{
+            this.gameObject.transform.GetChild(5).gameObject.SetActive(false);
+        }
 
         // 7. if adjusted ace psi to 10
         if(aceReg.transform.GetChild(1).transform.GetChild(0).GetComponentInChildren<RegulatorGauge>().withinRange == true)
         {
-            print("ace psi good");
+            this.gameObject.transform.GetChild(6).gameObject.SetActive(true);
         }
 
     }

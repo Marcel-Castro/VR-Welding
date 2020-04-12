@@ -5,9 +5,9 @@ using Microsoft.MixedReality.Toolkit.Utilities;
 using Microsoft.MixedReality.Toolkit.Input;
 using Microsoft.MixedReality.Toolkit.UI;
 
-public class RegulatorGaugeV : MonoBehaviour
+public class ValveGauge : MonoBehaviour
 {
-    public GameObject UINeedle;
+
     public GameObject needle;
     public GameObject valve;
     bool haveStopRotate;
@@ -18,6 +18,12 @@ public class RegulatorGaugeV : MonoBehaviour
     public float stopDegreeRight;
     public float turnRatio;
     public bool matchDirection;
+
+    public float acceptableDegreeStart;
+
+    public float acceptableDegreeEnd;
+
+    public bool withinRange;
 
     
 
@@ -56,16 +62,21 @@ public class RegulatorGaugeV : MonoBehaviour
 
         //keep track of rotation angle
         totalAngle += UpdateTotalAngle();
-        Debug.Log(totalAngle);
 
-        //adjust gauges
-        UINeedle.gameObject.GetComponent<Transform>().localEulerAngles = new Vector3(UINeedle.gameObject.GetComponent<Transform>().localEulerAngles.x, 
-                                                                                     UINeedle.gameObject.GetComponent<Transform>().localEulerAngles.y, 
-                                                                                     totalAngle * turnRatio);
-
+        //adjust gauge
         needle.gameObject.GetComponent<Transform>().localEulerAngles = new Vector3(needle.gameObject.GetComponent<Transform>().localEulerAngles.x, 
                                                                                     needle.gameObject.GetComponent<Transform>().localEulerAngles.y, 
                                                                                     totalAngle * -turnRatio);
+    
+        //change if needle is within acceptable state
+        if(totalAngle > acceptableDegreeStart && totalAngle < acceptableDegreeEnd)
+        {
+            withinRange = true;
+        }
+        else{
+            withinRange = false;
+        }
+    
     }
 
     //Update at what angle the rotation should stop
