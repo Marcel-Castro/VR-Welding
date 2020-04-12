@@ -9,6 +9,7 @@ public class AttachToTarget : MonoBehaviour
     public Collider targetTrigger;
     public Transform toAnchor;
     public Transform container;
+    public bool attached;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,8 @@ public class AttachToTarget : MonoBehaviour
             // Set transform of current object to match the transform of anchor point (both are empties)
             transform.position = targetTrigger.transform.position;
             transform.rotation = targetTrigger.transform.rotation;
+
+            attached = true;
         }
     }
 }

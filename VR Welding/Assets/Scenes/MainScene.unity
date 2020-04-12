@@ -423,6 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef759df092d944141bf2b73d71fa4c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chain: {fileID: 4756903411524719174}
   oxyTank: {fileID: 8296172667607432755}
   aceTank: {fileID: 8296172668041207466}
   oxyReg: {fileID: 8296172669292056203}
@@ -4036,6 +4037,7 @@ MonoBehaviour:
   targetTrigger: {fileID: 508213241}
   toAnchor: {fileID: 5006512735870314741}
   container: {fileID: 738085020}
+  attached: 0
 --- !u!54 &1291332817
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4112,6 +4114,7 @@ MonoBehaviour:
   targetTrigger: {fileID: 605863770}
   toAnchor: {fileID: 370965639456783554}
   container: {fileID: 8188592611133340117}
+  attached: 0
 --- !u!65 &1294870244
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5171,6 +5174,7 @@ MonoBehaviour:
   targetTrigger: {fileID: 466252142}
   toAnchor: {fileID: 5006512735247400088}
   container: {fileID: 738085020}
+  attached: 0
 --- !u!54 &1526860838
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6856,6 +6860,7 @@ MonoBehaviour:
   targetTrigger: {fileID: 1011874870}
   toAnchor: {fileID: 1266733898}
   container: {fileID: 1266733897}
+  attached: 0
 --- !u!65 &2038737837
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8706,7 +8711,7 @@ MonoBehaviour:
   stopDegreeRight: 360
   turnRatio: 0.4
   matchDirection: 1
-  acceptableDegreeStart: 355
+  acceptableDegreeStart: 350
   acceptableDegreeEnd: 400
   withinRange: 0
 --- !u!4 &4035946862818401288
