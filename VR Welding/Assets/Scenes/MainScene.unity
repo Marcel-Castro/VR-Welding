@@ -423,11 +423,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef759df092d944141bf2b73d71fa4c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chain: {fileID: 4756903411524719174}
-  oxyTank: {fileID: 8296172667607432755}
-  aceTank: {fileID: 8296172668041207466}
-  oxyReg: {fileID: 8296172669292056203}
-  aceReg: {fileID: 8296172668119554790}
+  chain: {fileID: 1294870241}
+  oxyAnchor: {fileID: 1526860834}
+  oxyHoseAnchor1: {fileID: 1371788482}
+  aceHoseAnchor1: {fileID: 1266733899}
+  oxyHoseAnchor2: {fileID: 2061256274}
+  aceHoseAnchor2: {fileID: 2036809603}
+  aceAnchor: {fileID: 1291332814}
+  oxyValve: {fileID: 3929280424107778564}
+  aceValve: {fileID: 9027124048655930581}
+  oxyRegKnob: {fileID: 9027124049504257268}
+  aceRegKnob: {fileID: 9027124048545534105}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -4134,6 +4140,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 746482351}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1371788482 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 371509864, guid: 47fb41e0010ecb549ac288788f8a60d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 672511708315029173}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1378284605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5395051049527767636, guid: 3eaa42619776ecb49ba1cac67a4199a6,
@@ -7010,6 +7022,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 534fd4d5fc787654e9312ebb741c41d2,
     type: 3}
   m_PrefabInstance: {fileID: 678462411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2061256274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 466962388, guid: 47fb41e0010ecb549ac288788f8a60d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 672511708315029173}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2088261951
 GameObject:
