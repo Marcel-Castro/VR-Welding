@@ -106,24 +106,8 @@ public class RopeV2 : MonoBehaviour
                 // joint.angularZMotion = ConfigurableJointMotion.Limited;
 
                 SoftJointLimit newSoftJoint = joint.angularYLimit;
-                newSoftJoint.limit = 40;
+                newSoftJoint.limit = 20;
                 joint.angularYLimit = newSoftJoint;
-
-                // ------------------------------------------------------------------------------------------------------
-
-                // CharacterJoint joint = current.AddComponent<CharacterJoint>() as CharacterJoint;
-                // joint.enablePreprocessing = false;
-                // joint.enableCollision = false;
-
-                // SoftJointLimitSpring newSoftJoint = joint.twistLimitSpring;
-                // newSoftJoint.spring = 20;
-                // newSoftJoint.damper = 1000;
-                // joint.twistLimitSpring = newSoftJoint;
-
-                // newSoftJoint = joint.swingLimitSpring;
-                // newSoftJoint.spring = 20;
-                // newSoftJoint.damper = 1000;
-                // joint.swingLimitSpring = newSoftJoint;
 
                 joint.connectedBody = root.GetChild(i - 1).gameObject.GetComponent<Rigidbody>();
             }
