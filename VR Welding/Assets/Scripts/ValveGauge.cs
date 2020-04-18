@@ -13,7 +13,7 @@ public class ValveGauge : MonoBehaviour
     bool haveStopRotate;
     Vector3 stopRotate;
     Quaternion lastPosition;
-    float totalAngle;
+    public float totalAngle;
     public float stopDegreeLeft;
     public float stopDegreeRight;
     public float turnRatio;

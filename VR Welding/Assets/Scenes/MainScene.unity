@@ -1404,7 +1404,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -2747,6 +2747,7 @@ MonoBehaviour:
   UINeedle: {fileID: 0}
   needle: {fileID: 2005504062}
   valve: {fileID: 0}
+  totalAngle: 0
   stopDegreeLeft: 0
   stopDegreeRight: 0
   turnRatio: 0
@@ -5822,6 +5823,7 @@ MonoBehaviour:
   UINeedle: {fileID: 0}
   needle: {fileID: 343663712}
   valve: {fileID: 0}
+  totalAngle: 0
   stopDegreeLeft: 0
   stopDegreeRight: 0
   turnRatio: 0
@@ -9182,9 +9184,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   needle: {fileID: 1160116396}
   valve: {fileID: 3929280424107778564}
+  totalAngle: 0
   stopDegreeLeft: -5
   stopDegreeRight: 360
-  turnRatio: 0.4
+  turnRatio: 0.27
   matchDirection: 1
   acceptableDegreeStart: 350
   acceptableDegreeEnd: 400
@@ -10737,12 +10740,13 @@ MonoBehaviour:
   UINeedle: {fileID: 343663712}
   needle: {fileID: 1096172889}
   valve: {fileID: 9027124048545534105}
+  totalAngle: 0
   stopDegreeLeft: -5
-  stopDegreeRight: 360
+  stopDegreeRight: 2150
   turnRatio: 0.125
   matchDirection: 1
-  acceptableDegreeStart: 180
-  acceptableDegreeEnd: 190
+  acceptableDegreeStart: 720
+  acceptableDegreeEnd: 912
   withinRange: 0
 --- !u!1 &9027124048655930581
 GameObject:
@@ -10780,12 +10784,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   needle: {fileID: 1109045259}
   valve: {fileID: 9027124048655930581}
+  totalAngle: 0
   stopDegreeLeft: -5
   stopDegreeRight: 360
-  turnRatio: 0.4
+  turnRatio: 0.55
   matchDirection: 1
-  acceptableDegreeStart: 350
-  acceptableDegreeEnd: 400
+  acceptableDegreeStart: 160
+  acceptableDegreeEnd: 190
   withinRange: 0
 --- !u!1 &9027124049504257268
 GameObject:
@@ -10824,10 +10829,11 @@ MonoBehaviour:
   UINeedle: {fileID: 2005504062}
   needle: {fileID: 419775728}
   valve: {fileID: 9027124049504257268}
+  totalAngle: 0
   stopDegreeLeft: -5
-  stopDegreeRight: 1080
+  stopDegreeRight: 2150
   turnRatio: 0.125
   matchDirection: 1
-  acceptableDegreeStart: 180
-  acceptableDegreeEnd: 360
+  acceptableDegreeStart: 325
+  acceptableDegreeEnd: 430
   withinRange: 0
